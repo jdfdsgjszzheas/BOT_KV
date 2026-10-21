@@ -13,7 +13,6 @@
       --text-main: var(--tg-theme-text-color, #f8fafc);
       --accent: #38bdf8;
       --accent-glow: rgba(56, 189, 248, 0.25);
-      --success: #22c55e;
       --border: #334155;
     }
 
@@ -43,23 +42,6 @@
       padding: 24px 20px;
       border: 1px solid var(--border);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .app-container::before {
-      content: '';
-      position: absolute;
-      top: -50px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 150px;
-      height: 150px;
-      background: var(--accent);
-      filter: blur(80px);
-      opacity: 0.3;
-      border-radius: 50%;
-      pointer-events: none;
     }
 
     .header {
@@ -76,14 +58,7 @@
       align-items: center;
       justify-content: center;
       font-size: 32px;
-      box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
       margin-bottom: 12px;
-      animation: pulse 2s infinite alternate;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.05); }
     }
 
     h1 {
@@ -110,10 +85,6 @@
       margin-bottom: 8px;
     }
 
-    .input-wrapper {
-      position: relative;
-    }
-
     input {
       width: 100%;
       padding: 14px 16px;
@@ -124,7 +95,6 @@
       font-size: 16px;
       font-weight: 600;
       outline: none;
-      transition: all 0.2s ease;
     }
 
     input:focus {
@@ -132,7 +102,6 @@
       box-shadow: 0 0 0 4px var(--accent-glow);
     }
 
-    /* Quick Badges */
     .quick-badges {
       display: flex;
       gap: 8px;
@@ -149,16 +118,13 @@
       font-size: 12px;
       font-weight: 700;
       cursor: pointer;
-      transition: 0.2s;
     }
 
-    .badge-btn:active, .badge-btn.active {
+    .badge-btn:active {
       background: var(--accent);
       color: #0f172a;
-      border-color: var(--accent);
     }
 
-    /* Price Output Box */
     .summary-card {
       background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
       border: 1px solid rgba(34, 197, 94, 0.3);
@@ -172,8 +138,6 @@
       font-size: 12px;
       color: #86efac;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
     }
 
     .summary-amount {
@@ -183,7 +147,6 @@
       margin-top: 4px;
     }
 
-    /* Primary Button */
     .submit-btn {
       width: 100%;
       padding: 16px;
@@ -195,16 +158,10 @@
       font-weight: 700;
       cursor: pointer;
       box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
-      transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
     }
 
     .submit-btn:active {
       transform: scale(0.98);
-      box-shadow: 0 5px 10px rgba(37, 99, 235, 0.2);
     }
   </style>
 </head>
@@ -214,45 +171,40 @@
     <div class="header">
       <div class="icon-badge">⭐</div>
       <h1>بيع نجوم تليجرام</h1>
-      <div class="rate-subtitle">سعر الصرف المثالي: <b>1 نجمة = $0.01 USDT</b></div>
+      <div class="rate-subtitle">سعر الصرف: <b>1 نجمة = $0.01 USDT</b></div>
     </div>
 
-    <!-- عدد النجوم -->
     <div class="input-group">
       <label>كم نجمة تريد بيعها؟</label>
-      <div class="input-wrapper">
-        <input type="number" id="starsInput" placeholder="أدخل عدد النجوم..." oninput="calculatePrice()">
-      </div>
+      <input type="number" id="starsInput" placeholder="أدخل عدد النجوم..." oninput="calculatePrice()">
       <div class="quick-badges">
-        <button class="badge-btn" onclick="setQuickStars(50)">50 ⭐</button>
-        <button class="badge-btn" onclick="setQuickStars(100)">100 ⭐</button>
-        <button class="badge-btn" onclick="setQuickStars(500)">500 ⭐</button>
-        <button class="badge-btn" onclick="setQuickStars(1000)">1000 ⭐</button>
+        <button type="button" class="badge-btn" onclick="setQuickStars(50)">50 ⭐</button>
+        <button type="button" class="badge-btn" onclick="setQuickStars(100)">100 ⭐</button>
+        <button type="button" class="badge-btn" onclick="setQuickStars(500)">500 ⭐</button>
+        <button type="button" class="badge-btn" onclick="setQuickStars(1000)">1000 ⭐</button>
       </div>
     </div>
 
-    <!-- بطاقة حساب النتيجة -->
     <div class="summary-card">
       <div class="summary-title">المبلغ الإجمالي المستحق</div>
       <div class="summary-amount" id="priceDisplay">$0.00 USDT</div>
     </div>
 
-    <!-- Binance ID -->
     <div class="input-group" style="margin-top: 0;">
       <label>معرف بينانس (Binance ID):</label>
       <input type="text" id="binanceInput" placeholder="أدخل ID حسابك هنا (مثال: 12345678)">
     </div>
 
-    <!-- زر التأكيد -->
-    <button class="submit-btn" onclick="submitData()" style="margin-top: 20px;">
-      <span>تأكيد الطلب وتحويل النجوم</span>
-      <span>🚀</span>
+    <button type="button" class="submit-btn" onclick="submitData()" style="margin-top: 20px;">
+      تأكيد الطلب وتحويل النجوم 🚀
     </button>
   </div>
 
   <script>
+    // تهيئة تليجرام بشكل صحيح وآمن
     const tg = window.Telegram.WebApp;
-    tg.expand(); // جعل الواجهة تأخذ حجم الشاشة كاملاً
+    tg.ready();
+    tg.expand();
 
     const PRICE_PER_STAR = 0.01;
 
@@ -271,30 +223,32 @@
     }
 
     function submitData() {
-      const stars = parseInt(document.getElementById('starsInput').value);
-      const binanceId = document.getElementById('binanceInput').value.trim();
+      const starsVal = document.getElementById('starsInput').value;
+      const binanceVal = document.getElementById('binanceInput').value;
 
-      if (!stars || stars <= 0) {
-        tg.showAlert("⚠️ يرجى إدخال عدد نجوم صحيح أكبر من الصفر!");
+      const stars = parseInt(starsVal);
+      const binanceId = binanceVal ? binanceVal.trim() : "";
+
+      if (!stars || isNaN(stars) || stars <= 0) {
+        alert("⚠️ يرجى إدخال عدد نجوم صحيح!");
         return;
       }
       if (!binanceId) {
-        tg.showAlert("⚠️ يرجى أدخال Binance ID الخاص بك لاستلام المستحقات!");
+        alert("⚠️ يرجى إدخال Binance ID الخاص بك!");
         return;
       }
 
-      // إرسال البيانات المجمعة للبوت فوراً وإغلاق التطبيق المصغر
-      const payload = {
+      const payload = JSON.stringify({
         stars: stars,
         binanceId: binanceId,
         amountUsd: (stars * PRICE_PER_STAR).toFixed(2)
-      };
+      });
 
-      if (tg.HapticFeedback) {
-        tg.HapticFeedback.notificationOccurred('success');
+      try {
+        tg.sendData(payload);
+      } catch (e) {
+        alert("⚠️ حدث خطأ أثناء إرسال البيانات للبوت.");
       }
-
-      tg.sendData(JSON.stringify(payload));
     }
   </script>
 </body>
