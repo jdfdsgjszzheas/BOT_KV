@@ -12,157 +12,24 @@
       --card-bg: var(--tg-theme-secondary-bg-color, #1e293b);
       --text-main: var(--tg-theme-text-color, #f8fafc);
       --accent: #38bdf8;
-      --accent-glow: rgba(56, 189, 248, 0.25);
       --border: #334155;
     }
-
-    * {
-      box-sizing: border-box;
-      font-family: 'Tajawal', -apple-system, sans-serif;
-      user-select: none;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      margin: 0;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      justify-content: center;
-    }
-
-    .app-container {
-      width: 100%;
-      max-width: 400px;
-      background: var(--card-bg);
-      border-radius: 24px;
-      padding: 24px 20px;
-      border: 1px solid var(--border);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    }
-
-    .header {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .icon-badge {
-      width: 64px;
-      height: 64px;
-      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-      border-radius: 20px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-      margin-bottom: 12px;
-    }
-
-    h1 {
-      font-size: 22px;
-      font-weight: 800;
-      margin: 0 0 4px 0;
-    }
-
-    .rate-subtitle {
-      font-size: 13px;
-      color: #94a3b8;
-    }
-
-    .input-group {
-      margin-top: 18px;
-      text-align: right;
-    }
-
-    label {
-      font-size: 13px;
-      font-weight: 600;
-      color: #cbd5e1;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    input {
-      width: 100%;
-      padding: 14px 16px;
-      border-radius: 14px;
-      border: 1.5px solid var(--border);
-      background: rgba(15, 23, 42, 0.6);
-      color: #ffffff;
-      font-size: 16px;
-      font-weight: 600;
-      outline: none;
-    }
-
-    input:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 4px var(--accent-glow);
-    }
-
-    .quick-badges {
-      display: flex;
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .badge-btn {
-      flex: 1;
-      padding: 8px 0;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      color: #94a3b8;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .badge-btn:active {
-      background: var(--accent);
-      color: #0f172a;
-    }
-
-    .summary-card {
-      background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
-      border: 1px solid rgba(34, 197, 94, 0.3);
-      border-radius: 16px;
-      padding: 16px;
-      margin: 20px 0;
-      text-align: center;
-    }
-
-    .summary-title {
-      font-size: 12px;
-      color: #86efac;
-      font-weight: 600;
-    }
-
-    .summary-amount {
-      font-size: 28px;
-      font-weight: 800;
-      color: #4ade80;
-      margin-top: 4px;
-    }
-
-    .submit-btn {
-      width: 100%;
-      padding: 16px;
-      border: none;
-      border-radius: 16px;
-      background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
-      color: white;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
-    }
-
-    .submit-btn:active {
-      transform: scale(0.98);
-    }
+    * { box-sizing: border-box; font-family: 'Tajawal', sans-serif; user-select: none; }
+    body { background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding-bottom: 60px; }
+    .app-container { width: 100%; max-width: 400px; background: var(--card-bg); border-radius: 24px; padding: 24px 20px; border: 1px solid var(--border); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); text-align: center; }
+    .icon-badge { width: 64px; height: 64px; background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); border-radius: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 32px; margin-bottom: 12px; }
+    h1 { font-size: 22px; font-weight: 800; margin: 0 0 4px 0; }
+    .rate-subtitle { font-size: 13px; color: #94a3b8; }
+    .input-group { margin-top: 18px; text-align: right; }
+    label { font-size: 13px; font-weight: 600; color: #cbd5e1; display: block; margin-bottom: 8px; }
+    input { width: 100%; padding: 14px 16px; border-radius: 14px; border: 1.5px solid var(--border); background: rgba(15, 23, 42, 0.6); color: #ffffff; font-size: 16px; font-weight: 600; outline: none; }
+    input:focus { border-color: var(--accent); }
+    .quick-badges { display: flex; gap: 8px; margin-top: 10px; }
+    .badge-btn { flex: 1; padding: 8px 0; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); border-radius: 10px; color: #94a3b8; font-size: 12px; font-weight: 700; cursor: pointer; }
+    .badge-btn:active { background: var(--accent); color: #0f172a; }
+    .summary-card { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 16px; padding: 16px; margin: 20px 0; text-align: center; }
+    .summary-title { font-size: 12px; color: #86efac; font-weight: 600; }
+    .summary-amount { font-size: 28px; font-weight: 800; color: #4ade80; margin-top: 4px; }
   </style>
 </head>
 <body>
@@ -194,26 +61,25 @@
       <label>معرف بينانس (Binance ID):</label>
       <input type="text" id="binanceInput" placeholder="أدخل ID حسابك هنا (مثال: 12345678)">
     </div>
-
-    <button type="button" class="submit-btn" onclick="submitData()" style="margin-top: 20px;">
-      تأكيد الطلب وتحويل النجوم 🚀
-    </button>
   </div>
 
   <script>
-    // تهيئة تليجرام بشكل صحيح وآمن
     const tg = window.Telegram.WebApp;
     tg.ready();
     tg.expand();
 
     const PRICE_PER_STAR = 0.01;
 
+    // تفعيل زر تليجرام الرسمي أسفل الشاشة
+    let mainButton = tg.MainButton;
+    mainButton.setText("🚀 تأكيد الطلب وتحويل النجوم");
+    mainButton.color = "#38bdf8";
+    mainButton.textColor = "#ffffff";
+    mainButton.show();
+
     function setQuickStars(amount) {
       document.getElementById('starsInput').value = amount;
       calculatePrice();
-      if (tg.HapticFeedback) {
-        tg.HapticFeedback.impactOccurred('light');
-      }
     }
 
     function calculatePrice() {
@@ -222,7 +88,8 @@
       document.getElementById('priceDisplay').innerText = `$${total} USDT`;
     }
 
-    function submitData() {
+    // عند الضغط على زر تليجرام الرسمي أسفل الشاشة
+    mainButton.onClick(function() {
       const starsVal = document.getElementById('starsInput').value;
       const binanceVal = document.getElementById('binanceInput').value;
 
@@ -247,9 +114,9 @@
       try {
         tg.sendData(payload);
       } catch (e) {
-        alert("⚠️ حدث خطأ أثناء إرسال البيانات للبوت.");
+        alert("⚠️ حدث خطأ أثناء إرسال البيانات.");
       }
-    }
+    });
   </script>
 </body>
 </html>
